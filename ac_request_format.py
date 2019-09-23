@@ -12,9 +12,9 @@ class AcRequestFormatCommand(sublime_plugin.TextCommand):
       for block in blocks:
         if blocks.index(block) == 0:
           new_line += block + '.'
+          first_line = len(block) + startcol
         elif blocks.index(block) == 1:
-          new_line  += block + '.\n'
-          first_line = len(new_line) + startcol - 2
+          new_line  += block + '\n'
         else:
           spaces    = [" " for x in range(first_line)]
           new_line += ''.join(spaces) + '.' + block + '\n'
